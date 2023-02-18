@@ -3,7 +3,8 @@ description: nonoFlex download Page
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+# NonoFlexAlpha 프로젝트 빌드 버전을 따름
+version: 1.0.1+2
 
 environment:
   sdk: '>=2.18.0 <3.0.0'

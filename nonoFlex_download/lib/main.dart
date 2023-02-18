@@ -1,12 +1,6 @@
-import 'dart:html' as html;
-
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'dart:convert' as convert;
-import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
-
-import 'package:path_provider/path_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,17 +29,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final downloadUrl = 'https://dl.dropboxusercontent.com/s/75cdkbmhf7hlvdr/nonoflex_v1.0.0.apk';
+  final downloadUrl = 'https://dl.dropboxusercontent.com/s/wkmmjmappm19hkx/nonoflex_v1.0.1.apk';
   final releaseNoteUrl = 'https://nonoflex.notion.site/c3e425b946464025ad59a5652136c0f6';
+  final versionInfo = 'v1.0.1';
 
   @override
   void initState() {
     super.initState();
   }
 
-  Future<void> getFileUrlData() async {}
-
-  void downloadFile() {
+  void downloadAPKFile() {
     launchUrl(Uri.parse(downloadUrl));
   }
 
@@ -96,12 +89,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '최신 버전 : 1.0.0',
-                    style: TextStyle(color: Colors.white),
+                    '최신 버전 : $versionInfo',
+                    style: const TextStyle(color: Colors.white),
                   ),
                   InkWell(
                     onTap: () => openReleaseNotePage(),
-                    child: Text(
+                    child: const Text(
                       '변경 사항 확인하기',
                       style: TextStyle(color: Colors.white),
                     ),
@@ -113,13 +106,13 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialButton(
                 minWidth: 300,
                 height: 80,
-                onPressed: () => downloadFile(),
+                onPressed: () => downloadAPKFile(),
                 highlightElevation: 0,
                 elevation: 0,
                 focusElevation: 0,
                 hoverElevation: 0,
                 shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Color(0xff0043AF)),
+                    side: const BorderSide(color: Color(0xff0043AF)),
                     borderRadius: BorderRadius.circular(8)),
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
                 color: Colors.white,
